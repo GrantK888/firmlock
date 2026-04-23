@@ -19,7 +19,6 @@ export default function Nav() {
         {/* Brand */}
         <Link href="/" className={styles.brand}>
           <img src="/logo.png" alt="FirmLock Logo" style={{ height: '32px', width: 'auto' }} />
-          <span className={styles.brandName}>FirmLock</span>
         </Link>
 
         {/* Nav links */}
