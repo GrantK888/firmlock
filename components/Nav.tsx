@@ -1,7 +1,6 @@
 'use client';
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
-import { LogoMark } from '@/components/ui/LogoMark';
 import { LinkButton } from '@/components/ui/Button';
 import styles from './Nav.module.css';
 
@@ -19,7 +18,7 @@ export default function Nav() {
       <div className={`container ${styles.inner}`}>
         {/* Brand */}
         <Link href="/" className={styles.brand}>
-          <LogoMark color="#0A1628" />
+          <img src="/logo.png" alt="FirmLock Logo" style={{ height: '32px', width: 'auto' }} />
           <span className={styles.brandName}>FirmLock</span>
         </Link>
 
