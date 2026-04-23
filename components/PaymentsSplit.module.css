@@ -1,0 +1,127 @@
+.split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+}
+
+@media (max-width: 900px) {
+  .split { grid-template-columns: 1fr; gap: 48px; }
+}
+
+/* ── Invoice visual ─────────────────────────────────────── */
+.visual {
+  background: var(--navy-900);
+  border-radius: var(--radius-card);
+  padding: 40px;
+  position: relative;
+  overflow: hidden;
+  min-height: 380px;
+  display: flex;
+  align-items: center;
+}
+
+.visual::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at top right, rgba(59,130,246,.16), transparent 60%);
+}
+
+.invoiceCard {
+  position: relative;
+  background: #fff;
+  border-radius: 12px;
+  padding: 26px;
+  width: 100%;
+  box-shadow: 0 20px 50px -10px rgba(0,0,0,.38);
+}
+
+.invoiceHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding-bottom: 18px;
+  border-bottom: 1px solid var(--g100);
+  margin-bottom: 18px;
+}
+
+.invoiceNum {
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--navy-900);
+}
+
+.invoiceDate {
+  font-size: 11px;
+  color: var(--g500);
+  margin-top: 3px;
+}
+
+.invoiceAmount {
+  font-size: 26px;
+  font-weight: 700;
+  color: var(--navy-900);
+  letter-spacing: -0.01em;
+}
+
+.invoiceRow {
+  display: flex;
+  justify-content: space-between;
+  padding: 9px 0;
+  font-size: 13px;
+  border-bottom: 1px dashed var(--g200);
+}
+.invoiceRow:last-of-type { border-bottom: none; }
+
+.rowLabel { color: var(--g500); }
+.rowValue  { color: var(--g800); font-weight: 500; }
+
+.invoiceFooter {
+  margin-top: 18px;
+  padding-top: 18px;
+  border-top: 1px solid var(--g100);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footerNote { font-size: 12px; color: var(--g500); }
+
+.paidBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 12px;
+  border-radius: var(--radius-full);
+  background: #ECFDF5;
+  color: #047857;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+/* ── Copy side ──────────────────────────────────────────── */
+.heading {
+  font-size: clamp(26px, 3vw, 36px);
+  color: var(--navy-900);
+  margin: 14px 0 20px;
+  letter-spacing: -0.015em;
+  line-height: 1.2;
+}
+
+.leadText { margin-bottom: 28px; }
+
+.bullets {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.bullet {
+  display: flex;
+  gap: 12px;
+  font-size: 15px;
+  color: var(--g700);
+  line-height: 1.55;
+}

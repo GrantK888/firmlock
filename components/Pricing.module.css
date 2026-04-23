@@ -1,0 +1,119 @@
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  align-items: stretch;
+}
+
+@media (max-width: 900px) {
+  .grid { grid-template-columns: 1fr; max-width: 440px; margin: 0 auto; }
+}
+
+.card {
+  background: #fff;
+  border: 1px solid var(--g200);
+  border-radius: var(--radius-card);
+  padding: 36px 28px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  transition: border-color 0.2s;
+}
+.card:hover { border-color: var(--g300); }
+
+.featured {
+  background: var(--navy-900);
+  border-color: var(--navy-900);
+  box-shadow: var(--shadow-xl);
+}
+.featured:hover { border-color: var(--navy-700); }
+
+.popularBadge {
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--blue-500);
+  color: #fff;
+  padding: 4px 14px;
+  border-radius: var(--radius-full);
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  white-space: nowrap;
+}
+
+.tier {
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--blue-500);
+  margin-bottom: 10px;
+}
+.featured .tier { color: var(--blue-400); }
+
+.priceName {
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--navy-900);
+  margin-bottom: 8px;
+  letter-spacing: -0.01em;
+}
+.featured .priceName { color: #fff; }
+
+.desc {
+  font-size: 14px;
+  color: var(--g500);
+  margin-bottom: 24px;
+  min-height: 44px;
+  line-height: 1.55;
+}
+.featured .desc { color: var(--silver); }
+
+.priceRow {
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+  margin-bottom: 24px;
+  padding-bottom: 24px;
+  border-bottom: 1px solid var(--g200);
+}
+.priceRowDark { border-color: var(--navy-700); }
+
+.priceNum {
+  font-size: 42px;
+  font-weight: 700;
+  color: var(--navy-900);
+  letter-spacing: -0.02em;
+  line-height: 1;
+}
+.featured .priceNum { color: #fff; }
+
+.pricePer {
+  font-size: 13px;
+  color: var(--g500);
+  font-weight: 500;
+  line-height: 1.4;
+}
+.featured .pricePer { color: var(--silver); }
+
+.features {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 11px;
+  margin-bottom: 28px;
+  flex: 1;
+}
+
+.feature {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 14px;
+  color: var(--g700);
+  line-height: 1.5;
+}
+.featured .feature { color: var(--silver); }

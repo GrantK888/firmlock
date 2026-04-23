@@ -1,0 +1,143 @@
+/* ============================================================
+   FIRMLOCK — Global CSS
+   Tokens, resets, and base typography
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap');
+
+/* ── Tokens ─────────────────────────────────────────────── */
+:root {
+  /* Navy */
+  --navy-900: #0A1628;
+  --navy-800: #0F1E33;
+  --navy-700: #162A45;
+  --navy-500: #1E3A5F;
+
+  /* Action */
+  --blue-600:  #2563EB;
+  --blue-500:  #3B82F6;
+  --blue-400:  #60A5FA;
+  --blue-50:   #DBEAFE;
+
+  /* Accents */
+  --silver:    #B0C4DE;
+  --paper:     #F9F9F9;
+
+  /* Semantic */
+  --emerald:   #10B981;
+  --amber:     #F59E0B;
+  --red:       #EF4444;
+  --slate:     #94A3B8;
+
+  /* Grays */
+  --g50:  #F8FAFC;
+  --g100: #F1F5F9;
+  --g200: #E2E8F0;
+  --g300: #CBD5E1;
+  --g500: #64748B;
+  --g600: #475569;
+  --g700: #334155;
+  --g800: #1E293B;
+  --g900: #0F172A;
+
+  /* Typography */
+  --serif: 'Libre Baskerville', Georgia, serif;
+  --sans:  'Plus Jakarta Sans', system-ui, sans-serif;
+
+  /* Spacing */
+  --space-1: 8px;
+  --space-2: 16px;
+  --space-3: 24px;
+  --space-4: 32px;
+  --space-6: 48px;
+  --space-8: 64px;
+  --space-12: 96px;
+
+  /* Radii */
+  --radius-sm:   6px;
+  --radius-md:   8px;
+  --radius-btn:  10px;
+  --radius-card: 16px;
+  --radius-full: 9999px;
+
+  /* Shadows */
+  --shadow-sm: 0 1px 2px rgba(10,22,40,.04);
+  --shadow-md: 0 1px 2px rgba(10,22,40,.06), 0 4px 16px rgba(10,22,40,.06);
+  --shadow-lg: 0 1px 2px rgba(10,22,40,.06), 0 12px 32px -8px rgba(10,22,40,.10);
+  --shadow-xl: 0 24px 60px -20px rgba(10,22,40,.22);
+  --shadow-btn-primary: 0 1px 2px rgba(10,22,40,.08), 0 4px 12px rgba(59,130,246,.20);
+
+  /* Layout */
+  --container: 1100px;
+}
+
+/* ── Reset ──────────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: var(--sans);
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--g800);
+  background: #fff;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+img, svg { display: block; max-width: 100%; }
+a { color: inherit; text-decoration: none; }
+button { font-family: inherit; cursor: pointer; border: none; background: none; }
+
+/* ── Container ──────────────────────────────────────────── */
+.container {
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 0 32px;
+}
+@media (max-width: 600px) { .container { padding: 0 20px; } }
+
+/* ── Scroll-reveal animation ────────────────────────────── */
+[data-reveal] {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+[data-reveal].is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+[data-reveal-delay="100"] { transition-delay: 0.1s; }
+[data-reveal-delay="200"] { transition-delay: 0.2s; }
+[data-reveal-delay="300"] { transition-delay: 0.3s; }
+[data-reveal-delay="400"] { transition-delay: 0.4s; }
+[data-reveal-delay="500"] { transition-delay: 0.5s; }
+
+/* ── Typography helpers ─────────────────────────────────── */
+.serif  { font-family: var(--serif); }
+.overline {
+  font-family: var(--sans);
+  font-weight: 600;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--blue-500);
+}
+.lead {
+  font-size: 18px;
+  line-height: 1.6;
+  color: var(--g600);
+}
+.muted { color: var(--g500); }
+
+/* ── Section spacing ────────────────────────────────────── */
+.section { padding: 96px 0; }
+.section-paper { background: var(--paper); }
+.section-navy  { background: var(--navy-900); color: #fff; }
+.section-gray  { background: var(--g50); }
+
+.section-intro {
+  max-width: 720px;
+  margin: 0 auto 64px;
+  text-align: center;
+}
+.section-intro .overline { display: inline-block; margin-bottom: 12px; }
+.section-intro h2 { color: var(--navy-900); margin-bottom: 16px; }
