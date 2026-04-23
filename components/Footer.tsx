@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { LogoMark } from '@/components/ui/LogoMark';
+// Removed LogoMark import since we are using your image file
 import styles from './Footer.module.css';
 
 const LINKS = {
@@ -15,8 +15,13 @@ export default function Footer() {
         <div className={styles.grid}>
           <div className={styles.brand}>
             <Link href="/" className={styles.brandLink}>
-              <LogoMark color="#0A1628" width={24} height={24} />
-              <span className={`${styles.brandName} serif`}>FirmLock</span>
+              {/* Using your logo image from the public folder */}
+              <img 
+                src="/logo.png" 
+                alt="FirmLock Logo" 
+                style={{ height: '32px', width: 'auto' }} 
+              />
+              {/* Removed the <span>FirmLock</span> line to avoid double-naming */}
             </Link>
             <p className={styles.tagline}>
               The client portal for independent consultants, fractional
