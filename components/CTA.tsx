@@ -15,12 +15,9 @@ export default function CTA() {
             required. No setup fee. No platform cut on your paid tier.
           </p>
           <div className={styles.ctas}>
-            <LinkButton href="#" variant="primary" size="lg">
+            <LinkButton href="https://firmlock.app/onboarding" variant="primary" size="lg">
               Start free
               <ArrowRight size={16} />
-            </LinkButton>
-            <LinkButton href="#" variant="outline-light" size="lg">
-              Book a walkthrough
             </LinkButton>
           </div>
           <div className={styles.meta}>
