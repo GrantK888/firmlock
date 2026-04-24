@@ -28,7 +28,7 @@ export default function Hero() {
           </p>
 
           <div className={styles.ctas} data-reveal data-reveal-delay="300">
-            <LinkButton href="#pricing" variant="primary" size="lg">
+            <LinkButton href="https://firmlock.app/onboarding" variant="primary" size="lg">
               Start free
               <ArrowRight size={16} />
             </LinkButton>
