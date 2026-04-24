@@ -110,7 +110,7 @@ export default function Pricing() {
                 ))}
               </ul>
               <LinkButton
-                href="#"
+                href="https://firmlock.app/onboarding"
                 variant={t.featured ? 'primary' : 'secondary'}
                 style={{ width: '100%', justifyContent: 'center' }}
               >
