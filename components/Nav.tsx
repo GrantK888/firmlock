@@ -31,8 +31,8 @@ export default function Nav() {
 
         {/* CTA */}
         <div className={styles.cta}>
-          <LinkButton href="#" variant="ghost" size="sm">Sign in</LinkButton>
-          <LinkButton href="#pricing" variant="primary" size="sm">Start free</LinkButton>
+          <LinkButton href="https://firmlock.app/dashboard" variant="ghost" size="sm">Sign in</LinkButton>
+          <LinkButton href="https://firmlock.app/onboarding" variant="primary" size="sm">Start free</LinkButton>
         </div>
       </div>
     </header>
