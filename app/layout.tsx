@@ -1,15 +1,25 @@
-import type { Metadata } from 'next';
-import './globals.css';
+import type { Metadata } from "next";
+import { Libre_Baskerville, Plus_Jakarta_Sans } from "next/font/google";
+import "./globals.css";
+
+const serif = Libre_Baskerville({
+  subsets: ["latin"],
+  weight: ["400", "700"],
+  variable: "--font-serif",
+  display: "swap",
+});
+
+const sans = Plus_Jakarta_Sans({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-sans",
+  display: "swap",
+});
 
 export const metadata: Metadata = {
-  title: 'FirmLock — The client portal for independent consultants',
+  title: "FirmLock — The client portal for independent consultants",
   description:
-    'FirmLock gives independent consultants and small agencies a white-labeled portal for contracts, retainers, deliverables, and payments.',
-  openGraph: {
-    title: 'FirmLock',
-    description: 'Software that works the way a Partner thinks.',
-    type: 'website',
-  },
+    "FirmLock gives independent consultants and small agencies a white-labeled portal for proposals, contracts, retainers, deliverables, and payments — with AI-powered workflows built in.",
 };
 
 export default function RootLayout({
@@ -18,7 +28,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
+    <html lang="en" className={`${serif.variable} ${sans.variable}`}>
       <body>{children}</body>
     </html>
   );

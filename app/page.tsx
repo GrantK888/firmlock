@@ -1,15 +1,15 @@
-import Nav from '@/components/Nav';
-import Hero from '@/components/Hero';
-import TrustStrip from '@/components/TrustStrip';
-import Positioning from '@/components/Positioning';
-import Features from '@/components/Features';
-import PaymentsSplit from '@/components/PaymentsSplit';
-import Testimonial from '@/components/Testimonial';
-import Pricing from '@/components/Pricing';
-import FAQ from '@/components/FAQ';
-import CTA from '@/components/CTA';
-import Footer from '@/components/Footer';
-import ScrollReveal from '@/components/ScrollReveal';
+import Nav from "./components/Nav";
+import Hero from "./sections/Hero";
+import TrustStrip from "./sections/TrustStrip";
+import Positioning from "./sections/Positioning";
+import Features from "./sections/Features";
+import Workflow from "./sections/Workflow";
+import SplitFeature from "./sections/SplitFeature";
+import Testimonial from "./sections/Testimonial";
+import Pricing from "./sections/Pricing";
+import FAQ from "./sections/FAQ";
+import CTA from "./sections/CTA";
+import Footer from "./sections/Footer";
 
 export default function Home() {
   return (
@@ -20,14 +20,14 @@ export default function Home() {
         <TrustStrip />
         <Positioning />
         <Features />
-        <PaymentsSplit />
+        <Workflow />
+        <SplitFeature />
         <Testimonial />
         <Pricing />
         <FAQ />
         <CTA />
       </main>
       <Footer />
-      <ScrollReveal />
     </>
   );
 }

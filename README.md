@@ -1,83 +1,91 @@
-# FirmLock Website — Next.js
+# FirmLock Marketing Site
 
-Marketing homepage built with **Next.js 14** (App Router), **TypeScript**, and **CSS Modules**. No Tailwind — design tokens live in `app/globals.css`.
+The FirmLock marketing website, built in Next.js 14 (App Router) with TypeScript, Tailwind CSS, and lucide-react icons. Every design decision follows the FirmLock brand system.
 
-## Quick start
+## Getting started
 
 ```bash
 npm install
 npm run dev
-# → http://localhost:3000
 ```
 
-## Stack
+Open [http://localhost:3000](http://localhost:3000).
 
-| Concern | Choice |
-|---|---|
-| Framework | Next.js 14 App Router |
-| Language | TypeScript |
-| Styles | CSS Modules + CSS custom properties |
-| Icons | lucide-react |
-| Fonts | Libre Baskerville + Plus Jakarta Sans (Google Fonts) |
-| Animations | IntersectionObserver via `components/ScrollReveal.tsx` |
+## Scripts
 
-## File structure
+- `npm run dev` — development server
+- `npm run build` — production build
+- `npm run start` — serve production build
+- `npm run lint` — lint
+
+## Project structure
 
 ```
 app/
-  globals.css          ← All design tokens (colors, type, spacing, radii, shadows)
-  layout.tsx           ← Root layout + metadata
-  page.tsx             ← Homepage — assembles all sections
-
-components/
-  Nav.tsx / .module.css
-  Hero.tsx / .module.css
-  TrustStrip.tsx / .module.css
-  Positioning.tsx / .module.css
-  Features.tsx / .module.css
-  PaymentsSplit.tsx / .module.css
-  Testimonial.tsx / .module.css
-  Pricing.tsx / .module.css
-  FAQ.tsx / .module.css      ← 'use client' (accordion state)
-  CTA.tsx / .module.css
-  Footer.tsx / .module.css
-  ScrollReveal.tsx           ← 'use client' IntersectionObserver wiring
-
-  ui/
-    Button.tsx / .module.css  ← <Button> and <LinkButton> — variant + size props
-    Badge.tsx / .module.css   ← Status badges (on-track, paid, overdue, etc.)
-    LogoMark.tsx              ← FirmLock SVG shield mark
+├── layout.tsx           # Fonts (Libre Baskerville + Plus Jakarta Sans) and metadata
+├── page.tsx             # Composes all sections
+├── globals.css          # Tailwind directives + hero grid bg
+├── components/
+│   ├── Logo.tsx         # Shield-and-columns SVG (navy/white variants)
+│   ├── Button.tsx       # primary/secondary/ghost/dark/outline-dark × sm/md/lg
+│   ├── Badge.tsx        # Status pills (green/amber/red/blue/gray)
+│   ├── SectionIntro.tsx # Overline + h2 + lead pattern
+│   ├── Nav.tsx          # Sticky top nav
+│   └── PortalPreview.tsx# Hero mockup
+└── sections/
+    ├── Hero.tsx
+    ├── TrustStrip.tsx
+    ├── Positioning.tsx     # "Between two worlds" 3-col
+    ├── Features.tsx        # 6-feature grid
+    ├── SplitFeature.tsx    # Stripe Connect + invoice mockup
+    ├── Testimonial.tsx     # Dark quote + stats strip
+    ├── Pricing.tsx         # 3 tiers, featured middle
+    ├── FAQ.tsx             # Client-side accordion
+    ├── CTA.tsx             # Dark conversion block
+    └── Footer.tsx
 ```
 
-## Design tokens
+## Design system
 
-All tokens are CSS custom properties defined in `app/globals.css`. Key ones:
+Tokens live in `tailwind.config.ts`. Use these exclusively — do not introduce new colors, fonts, or radii outside the system.
 
-```css
---navy-900: #0A1628   /* Oxford Navy — dominant dark */
---blue-500: #3B82F6   /* Action only — buttons, links */
---serif:    'Libre Baskerville', Georgia, serif
---sans:     'Plus Jakarta Sans', system-ui, sans-serif
---container: 1100px
-```
+### Colors
 
-## Scroll animations
+| Token | Hex | Usage |
+|---|---|---|
+| `navy-900` | #0A1628 | Dominant dark color |
+| `navy-800`/`navy-700`/`navy-500` | | Borders, depth |
+| `action` | #3B82F6 | Interactive only — never decorative |
+| `action-light` | #60A5FA | Hover |
+| `action-soft` | #DBEAFE | Selected backgrounds |
+| `silver` | #B0C4DE | Premium accents |
+| `paper` | #F9F9F9 | Workspace backgrounds |
+| `emerald` / `amber` / `red` / `slate` | | Functional status |
 
-Any element with `data-reveal` fades up on scroll. Add `data-reveal-delay="100"` (multiples of 100, up to 500) to stagger children. `ScrollReveal.tsx` wires the IntersectionObserver once on mount — it's a client component imported in `app/page.tsx`.
+### Typography
 
-## Adding pages
+- `font-serif` — Libre Baskerville 700. Headlines only.
+- `font-sans` — Plus Jakarta Sans 400/500/600/700. Everything else.
+- Scale: `text-display`, `text-h1`, `text-h2`, `text-h3`, `text-overline`.
 
-Create `app/about/page.tsx`, `app/pricing/page.tsx`, etc. Import `Nav` and `Footer` from components. All design tokens are globally available.
+### Components
 
-## Assets
+- `<Button variant="..." size="...">` — all five variants, three sizes
+- `<Badge variant="..." withDot>` — five color variants
+- `<Logo variant="navy|white">` — never recolor, never stretch
 
-Logo files are in the parent design system at `assets/`. Copy the ones you need into `public/`:
+## Brand rules (non-negotiable)
 
-```
-public/
-  firmlock-logo-navy.png
-  firmlock-logo-white.png
-  firmlock-logo-wordmark.png
-```
+- Oxford Navy dominates dark surfaces
+- Blue `action` is strictly interactive
+- Libre Baskerville + Plus Jakarta Sans only — never Inter, never Playfair
+- Lucide icons at `strokeWidth={1.8}`, never filled
+- Sentence case on buttons and labels
+- No exclamation points, no emoji in UI, no hedging
+- 8px grid for all spacing
+- Card radius 12–16px, button radius 8–10px
+- Generous spacing — when in doubt, add more
 
-Then reference with Next.js `<Image>` component. The SVG `LogoMark` component is used inline in Nav and Footer so no image file is required for those.
+## Adding future designs
+
+Every new FirmLock deliverable (landing pages, email templates, in-app UI) should reuse the existing `components/` primitives and Tailwind tokens. Create new section components under `app/sections/` and compose them from existing primitives. If a new primitive is truly needed, add it under `app/components/` and document it here.
