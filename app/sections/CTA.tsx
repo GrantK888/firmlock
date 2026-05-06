@@ -21,15 +21,12 @@ export default function CTA() {
           required. No setup fee. No platform cut on your paid tier.
         </p>
 
-        <div className="flex gap-3 flex-wrap justify-center">
-          <Button href="https://firmlock.app/onboarding" variant="primary" size="lg">
-  Start free
-  <ArrowRight className="w-4 h-4" />
-</Button>
-<Button href="mailto:hello@firmlock.app?subject=Walkthrough%20request" variant="outline-dark" size="lg">
-  Book a walkthrough
-</Button>
-        </div>
+       <div className="flex justify-center">
+  <Button href="https://firmlock.app/onboarding" variant="primary" size="lg">
+    Start free
+    <ArrowRight className="w-4 h-4" />
+  </Button>
+</div>
 
         <div className="mt-6 flex gap-7 justify-center flex-wrap text-[13px] text-slate-accent">
           <Mini>14-day Pro trial</Mini>
