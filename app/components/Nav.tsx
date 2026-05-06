@@ -32,16 +32,14 @@ export default function Nav() {
             </Link>
           ))}
         </div>
-
         <div className="flex items-center gap-2">
-          <Button href="#" variant="ghost" size="md">
-            Sign in
-          </Button>
-          <Button href="#pricing" variant="primary" size="md">
-            Start free
-          </Button>
-        </div>
-      </div>
+  <Button href="https://firmlock.app/" variant="ghost" size="md">
+    Sign in
+  </Button>
+  <Button href="https://firmlock.app/onboarding" variant="primary" size="md">
+    Start free
+  </Button>
+</div>
     </nav>
   );
 }
