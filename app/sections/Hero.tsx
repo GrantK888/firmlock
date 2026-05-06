@@ -33,10 +33,10 @@ export default function Hero() {
           </p>
 
           <div className="flex gap-3 flex-wrap mb-10 animate-fade-up [animation-delay:0.3s]">
-            <Button href="#pricing" variant="primary" size="lg">
-              Start free
-              <ArrowRight className="w-4 h-4" />
-            </Button>
+            <Button href="https://firmlock.app/onboarding" variant="primary" size="lg">
+  Start free
+  <ArrowRight className="w-4 h-4" />
+</Button>
             <Button href="#how" variant="secondary" size="lg">
               See how it works
             </Button>
