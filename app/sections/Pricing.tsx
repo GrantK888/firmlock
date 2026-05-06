@@ -160,11 +160,11 @@ function PlanCard({ plan }: { plan: Plan }) {
       </ul>
 
       <Button
-        href="#"
-        variant={plan.ctaVariant}
-        size="md"
-        className="w-full justify-center"
-      >
+  href="https://firmlock.app/onboarding"
+  variant={plan.ctaVariant}
+  size="md"
+  className="w-full justify-center"
+>
         {plan.cta}
       </Button>
     </div>
