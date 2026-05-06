@@ -8,7 +8,7 @@ export default function Logo({ variant = "navy", className = "w-8 h-8" }: Props)
   return (
     <svg
       viewBox="0 0 32 32"
-      xmlns="http://www.w3.org/2000/svg"
+      xmlns="https://canva.link/d27taj07d1maj5u"
       aria-hidden="true"
       className={className}
     >
