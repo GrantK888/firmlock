@@ -5,28 +5,16 @@ const columns = [
   {
     title: "Product",
     links: [
-      { href: "#features", label: "Features" },
-      { href: "#pricing", label: "Pricing" },
-      { href: "#", label: "Roadmap" },
-      { href: "#", label: "Changelog" },
-    ],
-  },
-  {
-    title: "Resources",
-    links: [
-      { href: "#", label: "Help center" },
-      { href: "#", label: "Consultant's guide" },
-      { href: "#", label: "Blog" },
-      { href: "#", label: "Stripe setup" },
+      { href: "/#features", label: "Features" },
+      { href: "/#pricing", label: "Pricing" },
     ],
   },
   {
     title: "Company",
     links: [
-      { href: "#", label: "About" },
-      { href: "#", label: "Security" },
-      { href: "#", label: "Contact" },
-      { href: "#", label: "Status" },
+      { href: "https://firmlock.app/about", label: "About" },
+      { href: "https://firmlock.app/contact", label: "Contact" },
+      { href: "mailto:hello@firmlock.app", label: "Email us" },
     ],
   },
 ];
@@ -74,16 +62,13 @@ export default function Footer() {
         <div className="flex justify-between items-center pt-8 border-t border-slate-200 text-[13px] text-slate-500 flex-wrap gap-4">
           <div>© 2026 FirmLock, Inc. All rights reserved.</div>
           <div className="flex gap-6">
-            <Link href="#" className="hover:text-navy-900 transition-colors">
-              Privacy
-            </Link>
-            <Link href="#" className="hover:text-navy-900 transition-colors">
-              Terms
-            </Link>
-            <Link href="#" className="hover:text-navy-900 transition-colors">
-              DPA
-            </Link>
-          </div>
+  <Link href="/privacy" className="hover:text-navy-900 transition-colors">
+    Privacy
+  </Link>
+  <Link href="/terms" className="hover:text-navy-900 transition-colors">
+    Terms
+  </Link>
+</div>
         </div>
       </div>
     </footer>
