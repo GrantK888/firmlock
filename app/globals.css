@@ -42,4 +42,27 @@
     opacity: 0.5;
     pointer-events: none;
   }
+
+  /* Legal page typography */
+  .prose-firmlock h2 {
+    @apply font-serif font-bold text-h2 text-navy-900 mt-12 mb-4 tracking-tight;
+  }
+  .prose-firmlock h3 {
+    @apply font-sans font-semibold text-[17px] text-navy-900 mt-8 mb-3;
+  }
+  .prose-firmlock p {
+    @apply mb-4 text-slate-700 leading-[1.7];
+  }
+  .prose-firmlock a {
+    @apply text-action hover:underline;
+  }
+  .prose-firmlock ul {
+    @apply list-disc pl-6 mb-4 space-y-2 text-slate-700 leading-[1.7];
+  }
+  .prose-firmlock strong {
+    @apply font-semibold text-navy-900;
+  }
+  .prose-firmlock hr {
+    @apply my-12 border-slate-200;
+  }
 }
