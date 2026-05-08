@@ -29,7 +29,7 @@ export default function CTA() {
 </div>
 
         <div className="mt-6 flex gap-7 justify-center flex-wrap text-[13px] text-slate-accent">
-          <Mini>14-day Pro trial</Mini>
+          <Mini>14-day Practice trial</Mini>
           <Mini>Cancel anytime</Mini>
           <Mini>AI workflows included</Mini>
         </div>
