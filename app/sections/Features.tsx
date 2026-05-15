@@ -21,7 +21,7 @@ const features: Feature[] = [
   {
     icon: Building2,
     title: "Branded client portals",
-    body: "Each client gets a private workspace with your firm's logo, colors, tagline, and custom domain. No FirmLock branding, no \"powered by.\"",
+    body:  "Each client gets a private workspace with your firm's logo, brand colors, and tagline. No \"powered by\" badges. Your firm, front and center.",
   },
   {
     icon: FileSignature,

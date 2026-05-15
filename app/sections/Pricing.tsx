@@ -31,7 +31,7 @@ const plans: Plan[] = [
       "Branded portal & messaging",
       "Proposals & invoicing",
       "Stripe card payments",
-      "FirmLock subdomain",
+      "Hosted on firmlock.app",
     ],
     cta: "Start free",
     ctaVariant: "secondary",
@@ -45,7 +45,7 @@ const plans: Plan[] = [
     desc: "For established solo consultants running a steady book of business.",
     features: [
       "Up to 15 active clients",
-      "Custom domain & full white-label",
+      "Branded portal — your logo, colors, tagline",
       "All five AI workflows",
       "Recurring invoices & retainer tracking",
       "Monthly reports with read-receipts",

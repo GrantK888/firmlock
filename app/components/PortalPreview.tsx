@@ -10,7 +10,7 @@ export default function PortalPreview() {
         <span className="w-2.5 h-2.5 rounded-full bg-[#FEBC2E]" />
         <span className="w-2.5 h-2.5 rounded-full bg-[#28C840]" />
         <div className="ml-3 flex-1 max-w-[300px] bg-white border border-slate-200 px-3 py-1 rounded text-[11px] text-slate-500 font-mono">
-          clients.meridian-partners.com
+          firmlock.app/meridian-partners
         </div>
       </div>
 

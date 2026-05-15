@@ -29,7 +29,7 @@ const columns: Column[] = [
     variant: "featured",
     iconVariant: "check",
     items: [
-      "White-labeled on your domain",
+      "Your logo, colors, and tagline throughout",
       "Proposals through payments in one tool",
       "AI drafts reports, proposals, and invoices",
       "Five billing models, recurring or one-off",

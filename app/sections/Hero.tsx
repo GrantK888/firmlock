@@ -49,7 +49,7 @@ export default function Hero() {
             </span>
             <span className="inline-flex items-center gap-1.5">
               <Check className="w-4 h-4 text-brand-emerald" />
-              Custom domain
+              Your branding
             </span>
             <span className="inline-flex items-center gap-1.5">
               <Check className="w-4 h-4 text-brand-emerald" />

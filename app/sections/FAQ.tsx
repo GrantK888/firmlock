@@ -47,13 +47,15 @@ const items: Item[] = [
     ),
   },
   {
-    q: "Can I use my own domain?",
+    q: "What does the client portal look like?",
     a: (
       <>
-        Yes, on Pro and Agency plans. Point a subdomain like{" "}
-        <strong>clients.yourfirm.com</strong> at FirmLock, upload your logo
-        and brand colors, and the portal is fully white-labeled. Clients
-        never see our brand.
+        Each client sees a portal with your firm&apos;s logo, brand colors,
+      and tagline — set up in minutes from your dashboard. The URL is
+      hosted on firmlock.app with your firm&apos;s identifier (e.g.,{" "}
+      <strong>firmlock.app/yourfirm</strong>). FirmLock branding doesn&apos;t
+      appear to your clients. Per-consultant custom domains
+      (clients.yourfirm.com) are on the roadmap.
       </>
     ),
   },
