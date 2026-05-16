@@ -14,6 +14,7 @@ type Plan = {
   features: string[];
   cta: string;
   ctaVariant: "primary" | "secondary";
+  ctaHref?: string;
   featured?: boolean;
   isFree?: boolean;
   // For annual subtext math
@@ -25,9 +26,9 @@ const plans: Plan[] = [
   {
     tier: "Free",
     price: 0,
-    desc: "For consultants testing the waters with one or two clients.",
+    desc: "For consultants testing the waters with their first client.",
     features: [
-      "Up to 2 active clients",
+      "1 active client",
       "Branded portal & messaging",
       "Proposals & invoicing",
       "Stripe card payments",
@@ -39,9 +40,9 @@ const plans: Plan[] = [
   },
   {
     tier: "Practice",
-    price: 49,
-    annualTotal: 490,
-    annualSavings: 98,
+    price: 89,
+    annualTotal: 828,
+    annualSavings: 240,
     desc: "For established solo consultants running a steady book of business.",
     features: [
       "Up to 15 active clients",
@@ -58,13 +59,13 @@ const plans: Plan[] = [
   },
   {
     tier: "Firm",
-    price: 99,
-    annualTotal: 990,
-    annualSavings: 198,
+    price: 229,
+    annualTotal: 2148,
+    annualSavings: 600,
     desc: "For fractional executives and boutique firms with multiple practitioners.",
     features: [
       "Unlimited clients",
-      "Up to 5 team seats",
+      "Up to 5 team seats (additional seats $29/mo)",
       "Role-based permissions",
       "Shared template library",
       "Weekly digests & satisfaction surveys",
@@ -73,6 +74,25 @@ const plans: Plan[] = [
     ],
     cta: "Start 14-day trial",
     ctaVariant: "secondary",
+  },
+  {
+    tier: "Scale",
+    price: 459,
+    annualTotal: 3948,
+    annualSavings: 1560,
+    desc: "For fractional networks and multi-practitioner firms running institutional client books.",
+    features: [
+      "Everything in Firm",
+      "Unlimited team seats",
+      "Sub-accounts for placed practitioners",
+      "API access & custom integrations",
+      "SSO & advanced security controls",
+      "White-label admin console",
+      "Priority support & dedicated CSM",
+    ],
+    cta: "Talk to sales",
+    ctaVariant: "secondary",
+    ctaHref: "mailto:hello@firmlock.app",
   },
 ];
 
@@ -84,13 +104,13 @@ export default function Pricing() {
       <div className="container-x">
         <SectionIntro
           overline="Pricing"
-          title="Priced for a solo practice. Built for a small firm."
-          lead="Start free. Upgrade when it pays for itself. Cancel anytime."
+          title="Priced for a serious practice. Built for a serious firm."
+          lead="Start free. Upgrade when it pays for itself in the first week. Cancel anytime."
         />
 
         <BillingToggle value={billing} onChange={setBilling} />
 
-        <div className="grid md:grid-cols-3 gap-6 items-stretch">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 items-stretch">
           {plans.map((plan) => (
             <PlanCard key={plan.tier} plan={plan} billing={billing} />
           ))}
@@ -112,7 +132,7 @@ function BillingToggle({
       <div
         role="tablist"
         aria-label="Billing period"
-        className="relative inline-flex items-center bg-slate-100 border border-slate-200 rounded-full p-1"
+        className="relative inline-flex items-center bg-slate-100 border border-slate-200 rounded-full p--1"
       >
         {/* Sliding pill */}
         <span
@@ -137,7 +157,6 @@ function BillingToggle({
         >
           Monthly
         </button>
-
         <button
           type="button"
           role="tab"
@@ -165,7 +184,13 @@ function BillingToggle({
   );
 }
 
-function PlanCard({ plan, billing }: { plan: Plan; billing: BillingPeriod }) {
+function PlanCard({
+  plan,
+  billing,
+}: {
+  plan: Plan;
+  billing: BillingPeriod;
+}) {
   const featured = plan.featured;
 
   // Subtext under price
@@ -238,30 +263,29 @@ function PlanCard({ plan, billing }: { plan: Plan; billing: BillingPeriod }) {
         </p>
       </div>
 
-      <ul className="flex flex-col gap-3 mb-8 flex-1">
-        {plan.features.map((f) => (
-          <li
-            key={f}
-            className={`flex items-start gap-2.5 text-sm leading-[1.5] ${
-              featured ? "text-silver" : "text-slate-700"
-            }`}
-          >
+      <ul className="space-y-3 mb-8 flex-1">
+        {plan.features.map((feature) => (
+          <li key={feature} className="flex items-start gap-3">
             <CheckCircle2
-              className={`w-[18px] h-[18px] flex-shrink-0 mt-0.5 ${
-                featured ? "text-action-light" : "text-brand-emerald"
+              className={`w-5 h-5 flex-shrink-0 mt-0.5 ${
+                featured ? "text-action-light" : "text-action"
               }`}
-              strokeWidth={1.8}
             />
-            <span>{f}</span>
+            <span
+              className={`text-sm leading-[1.5] ${
+                featured ? "text-silver" : "text-slate-700"
+              }`}
+            >
+              {feature}
+            </span>
           </li>
         ))}
       </ul>
 
       <Button
-        href="https://firmlock.app/onboarding"
+        href={plan.ctaHref ?? "https://firmlock.app/onboarding"}
         variant={plan.ctaVariant}
-        size="md"
-        className="w-full justify-center"
+        className="w-full"
       >
         {plan.cta}
       </Button>
