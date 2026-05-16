@@ -1,31 +1,26 @@
 "use client";
 
-import { useState } from "react";
 import { CheckCircle2 } from "lucide-react";
 import Button from "../components/Button";
 import SectionIntro from "../components/SectionIntro";
 
-type BillingPeriod = "monthly" | "annual";
-
 type Plan = {
   tier: string;
-  price: number; // headline $/month, same for both views
+  price: number;
+  subtext: string;
   desc: string;
   features: string[];
   cta: string;
   ctaVariant: "primary" | "secondary";
   ctaHref?: string;
   featured?: boolean;
-  isFree?: boolean;
-  // For annual subtext math
-  annualTotal?: number;
-  annualSavings?: number;
 };
 
 const plans: Plan[] = [
   {
     tier: "Free",
     price: 0,
+    subtext: "forever",
     desc: "For consultants testing the waters with their first client.",
     features: [
       "1 active client",
@@ -36,13 +31,11 @@ const plans: Plan[] = [
     ],
     cta: "Start free",
     ctaVariant: "secondary",
-    isFree: true,
   },
   {
     tier: "Practice",
     price: 89,
-    annualTotal: 828,
-    annualSavings: 240,
+    subtext: "billed annually ($828/year) — save $240",
     desc: "For established solo consultants running a steady book of business.",
     features: [
       "Up to 15 active clients",
@@ -60,8 +53,7 @@ const plans: Plan[] = [
   {
     tier: "Firm",
     price: 229,
-    annualTotal: 2148,
-    annualSavings: 600,
+    subtext: "billed annually ($2,148/year) — save $600",
     desc: "For fractional executives and boutique firms with multiple practitioners.",
     features: [
       "Unlimited clients",
@@ -78,8 +70,7 @@ const plans: Plan[] = [
   {
     tier: "Scale",
     price: 459,
-    annualTotal: 3948,
-    annualSavings: 1560,
+    subtext: "billed annually ($3,948/year) — save $1,560",
     desc: "For fractional networks and multi-practitioner firms running institutional client books.",
     features: [
       "Everything in Firm",
@@ -97,8 +88,6 @@ const plans: Plan[] = [
 ];
 
 export default function Pricing() {
-  const [billing, setBilling] = useState<BillingPeriod>("annual");
-
   return (
     <section id="pricing" className="py-24 md:py-[96px]">
       <div className="container-x">
@@ -108,11 +97,9 @@ export default function Pricing() {
           lead="Start free. Upgrade when it pays for itself in the first week. Cancel anytime."
         />
 
-        <BillingToggle value={billing} onChange={setBilling} />
-
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 items-stretch">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 items-stretch mt-12">
           {plans.map((plan) => (
-            <PlanCard key={plan.tier} plan={plan} billing={billing} />
+            <PlanCard key={plan.tier} plan={plan} />
           ))}
         </div>
       </div>
@@ -120,88 +107,8 @@ export default function Pricing() {
   );
 }
 
-function BillingToggle({
-  value,
-  onChange,
-}: {
-  value: BillingPeriod;
-  onChange: (v: BillingPeriod) => void;
-}) {
-  return (
-    <div className="flex justify-center mb-12">
-      <div
-        role="tablist"
-        aria-label="Billing period"
-        className="relative inline-flex items-center bg-slate-100 border border-slate-200 rounded-full p--1"
-      >
-        {/* Sliding pill */}
-        <span
-          aria-hidden="true"
-          className={`absolute top-1 bottom-1 rounded-full bg-white shadow-sm border border-slate-200 transition-all duration-200 ease-out ${
-            value === "monthly"
-              ? "left-1 right-[calc(50%+2px)]"
-              : "left-[calc(50%+2px)] right-1"
-          }`}
-        />
-
-        <button
-          type="button"
-          role="tab"
-          aria-selected={value === "monthly"}
-          onClick={() => onChange("monthly")}
-          className={`relative z-10 px-5 py-2 text-sm font-semibold rounded-full transition-colors ${
-            value === "monthly"
-              ? "text-navy-900"
-              : "text-slate-500 hover:text-slate-700"
-          }`}
-        >
-          Monthly
-        </button>
-        <button
-          type="button"
-          role="tab"
-          aria-selected={value === "annual"}
-          onClick={() => onChange("annual")}
-          className={`relative z-10 inline-flex items-center gap-2 px-5 py-2 text-sm font-semibold rounded-full transition-colors ${
-            value === "annual"
-              ? "text-navy-900"
-              : "text-slate-500 hover:text-slate-700"
-          }`}
-        >
-          Annual
-          <span
-            className={`inline-flex items-center px-1.5 py-0.5 rounded text-[10px] font-bold tracking-wide uppercase ${
-              value === "annual"
-                ? "bg-action-soft text-action"
-                : "bg-slate-200 text-slate-500"
-            }`}
-          >
-            Save 17%
-          </span>
-        </button>
-      </div>
-    </div>
-  );
-}
-
-function PlanCard({
-  plan,
-  billing,
-}: {
-  plan: Plan;
-  billing: BillingPeriod;
-}) {
+function PlanCard({ plan }: { plan: Plan }) {
   const featured = plan.featured;
-
-  // Subtext under price
-  let subtext: string;
-  if (plan.isFree) {
-    subtext = "forever";
-  } else if (billing === "annual") {
-    subtext = `billed annually ($${plan.annualTotal}/year) — save $${plan.annualSavings}`;
-  } else {
-    subtext = "billed monthly";
-  }
 
   return (
     <div
@@ -255,11 +162,11 @@ function PlanCard({
           </span>
         </div>
         <p
-          className={`text-[13px] leading-[1.5] ${
+          className={`text-[13px] leading-[1.5] min-h-[40px] ${
             featured ? "text-silver" : "text-slate-500"
           }`}
         >
-          {subtext}
+          {plan.subtext}
         </p>
       </div>
 
