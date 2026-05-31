@@ -190,7 +190,7 @@ function PlanCard({ plan }: { plan: Plan }) {
       </ul>
 
       <Button
-        href={plan.ctaHref ?? "https://firmlock.app/onboarding"}
+        href={plan.ctaHref ?? "https://firmlock.app/get-started"}
         variant={plan.ctaVariant}
         className="w-full"
       >
