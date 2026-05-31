@@ -22,7 +22,7 @@ export default function CTA() {
         </p>
 
        <div className="flex justify-center">
-  <Button href="https://firmlock.app/onboarding" variant="primary" size="lg">
+  <Button href="https://firmlock.app/get-started" variant="primary" size="lg">
     Start free
     <ArrowRight className="w-4 h-4" />
   </Button>

@@ -37,7 +37,7 @@ export default function Nav() {
           <Button href="https://firmlock.app/" variant="ghost" size="md">
             Sign in
           </Button>
-          <Button href="https://firmlock.app/onboarding" variant="primary" size="md">
+          <Button href="https://firmlock.app/get-started" variant="primary" size="md">
             Start free
           </Button>
         </div>
