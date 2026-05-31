@@ -29,7 +29,7 @@ const plans: Plan[] = [
       "Stripe card payments",
       "Hosted on firmlock.app",
     ],
-    cta: "Start free",
+    cta: "Create free account",
     ctaVariant: "secondary",
   },
   {

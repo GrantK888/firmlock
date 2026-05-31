@@ -45,7 +45,7 @@ export default function Hero() {
           <div className="flex gap-7 flex-wrap text-[13px] text-slate-500 font-medium animate-fade-up [animation-delay:0.4s]">
             <span className="inline-flex items-center gap-1.5">
               <Check className="w-4 h-4 text-brand-emerald" />
-              Free tier, no card required
+              Start free, no card required
             </span>
             <span className="inline-flex items-center gap-1.5">
               <Check className="w-4 h-4 text-brand-emerald" />
